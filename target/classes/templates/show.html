@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vacation Hotspots</title>
+</head>
+<body>
+    <a href="/">Show All Vacation Hotspots</a> <br/>
+
+
+    Where: <span th:text="${place.wheretogo}"></span> <br/>
+    With who: <span th:text="${place.whowith}"></span> <br/>
+    Description why: <p th:text="${place.description}"></p> <br/>
+    Days: <span th:text="${place.days}"></span> <br/>
+
+
+    <a th:href="@{/delete/{id}(id=${place.id})}">Delete this place</a>
+</body>
+</html>

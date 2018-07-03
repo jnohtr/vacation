@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vacation Hotspots</title>
+</head>
+<body>
+    <form action="#"
+          th:action="@{/process}"
+          th:object="${place}"
+          method="POST">
+        <input type="hidden" th:field="*{id}" />
+
+        Where to go: <input type="text" th:field="*{wheretogo}" />
+        <span th:if="${#fields.hasErrors('wheretogo')}" th:errors="*{wheretogo}"></span> <br/>
+
+        Who: <input type="text" th:field="*{whowith}" />
+        <span th:if="${#fields.hasErrors('whowith')}" th:errors="*{whowith}"></span> <br/>
+
+        Description why: <textarea rows="3" th:field="*{description}" />
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span> <br/>
+
+        How long: <input type="text" th:field="*{days}" />
+        <span th:if="${#fields.hasErrors('days')}" th:errors="*{days}"></span> <br/>
+        <br/>
+
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>

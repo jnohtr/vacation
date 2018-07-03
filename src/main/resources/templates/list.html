@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vacation Hotspots</title>
+</head>
+<body>
+    <a href="/add">Add a Place</a> <br/>
+    <table>
+        <tr>
+            <th>where to go </th>
+            <th>who with</th>
+            <th>days</th>
+            <td>Actions</td>
+        </tr>
+        <tr th:each="place : ${places}">
+            <td th:text="${place.wheretogo}"></td>
+            <td th:text="${place.whowith}"></td>
+            <td th:text="${place.days}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${place.id})}">Update</a>
+                <a th:href="@{/detail/{id}(id=${place.id})}">Details</a>
+                <a th:href="@{/delete/{id}(id=${place.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
